@@ -1,64 +1,32 @@
+// Ejercicio: Crear una función que reciba dos números y devuelva el mayor de ellos
+//
+// Instrucciones:
+// 1. Crear una función llamada `obtenerMayor` que reciba dos números como parámetros.
+// 2. La función debe devolver el mayor de los dos números.
+// 3. Pedir al usuario que ingrese dos números y mostrar el resultado de la función `obtenerMayor`.
+
 const { ask } = require('../helpers/input');
 
-function obtenerPromedio(numeros) {
-    let suma = 0;
-    for(let i =0; i< numeros.length; i++){
-        suma = suma+numeros[i];
-    }
-const promedio =suma/numeros.length;
-return promedio;
-    }
-
-    function nombresConVocal(nombres){
-        //retornar los nombres que solo tienen una vocal
-
-        
-    }
-
-    function obtenerMayor(numeros){
-        let mayor = numeros[0];
-        for (let i =0; i<numeros.length; i++) {
-            if(numeros[i]>mayor){
-                mayor = numeros [i];
-
-            }
-        }
-
-        return mayor;
-
-    }
-
-    function resumenEstadistico(numeros){
-        const promedio = obtenerPromedio(numeros);
-     let minimo = numeros[0]
-     let maximo = obtenerMayor(numeros);
-
-     for(let i = 0; i < numeros.length; i++){
-        if(numeros[i]<minimo){
-       minimo = numeros [i];
-
-        }
-
-     }
-     return {promedio,minimo,maximo}
-   
-    }
-
-
-
-async function main() {
-    const edades = [20,18,25,30,22];
-    console.log(`Promedio= ${obtenerPromedio(edades)}`);
-
-    const lista = [5,20,8,99,3];
-    console.log(`El numero mayor de: ${lista} es: ${obtenerMayor(lista)}`);
-
-    const datos = [70,80,90,100,85];
-    console.log(resumenEstadistico(datos));
-    console.log('promedio' )
-
+// TODO: Función que devuelve el mayor de dos números
+function obtenerMayor(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
 }
 
+async function main() {
+  const num1 = Number(await ask("Introduce el primer número a evaluar: "));
+  const num2 = Number(await ask("Introduce el segundo número a evaluar: "));
 
+  if (num1 === num2) {
+    console.log("Los dos numeros que ingresaste son iguales");
+  } else {
+    const resultado = obtenerMayor(num1, num2);
+    console.log("El numero mayor es: ", resultado);
+  }
+
+}
 
 main();
